@@ -38,7 +38,7 @@ exports.viewAToDo = (req,res) => {
 
 
 exports.modifyToDo = (req,res) =>{
-    ProductsModel.findById(req.params.id , (err,todo)=>{
+    todoModule.findById(req.params.id , (err,todo)=>{
         if(err)
         res.send(err)
         todo.todoName = req.body.todoName ? req.body.todoName : todo.todoName
@@ -56,7 +56,7 @@ exports.modifyToDo = (req,res) =>{
 }
 
 exports.deleteToDo = (req,res) =>{
-    ProductsModel.deleteOne({
+    todoModule.deleteOne({
 
         
         _id:req.params.id
